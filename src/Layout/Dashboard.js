@@ -8,7 +8,7 @@ const DashboardLayout = () => {
   const [userRole, setUserRole] = useState([]);
   const location = useLocation();
   useEffect(() => {
-    fetch(`https://turf-server-seven.vercel.app/users?email=${user?.email}`)
+    fetch(`http://localhost:4000/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -143,18 +143,7 @@ const DashboardLayout = () => {
                     Manual Booking
                   </Link>
                 </li>
-                <li className="mb-2">
-                  <Link
-                    className={`font-bold  dark:text-white ${
-                      isButtonActive("/dashboard/customOrder")
-                        ? "bg-green-800 text-white font-bold"
-                        : "bg-white text-green-800  font-bold hover:bg-green-600"
-                    }`}
-                    to="/dashboard/customOrder"
-                  >
-                    Custom Orders
-                  </Link>
-                </li>
+                
                 <li className="mb-2">
                   <Link
                     className={`font-bold  dark:text-white ${

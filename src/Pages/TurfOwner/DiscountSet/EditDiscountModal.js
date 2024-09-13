@@ -6,7 +6,7 @@ const EditDiscountModal = ({ edit, refetch, setEdit }) => {
   console.log(edit);
   const [info, setInfo] = useState([]);
   useEffect(() => {
-    fetch(`https://turf-server-seven.vercel.app/turfCollection/${edit}`)
+    fetch(`http://localhost:4000/turfCollection/${edit}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("all t e", data);
@@ -27,7 +27,7 @@ const EditDiscountModal = ({ edit, refetch, setEdit }) => {
       promo: promo,
     };
 
-    fetch(`https://turf-server-seven.vercel.app/turfCollection/${edit}`, {
+    fetch(`http://localhost:4000/turfCollection/${edit}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

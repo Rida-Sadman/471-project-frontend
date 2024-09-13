@@ -10,7 +10,7 @@ const UserProfile = () => {
   const [userRole, setUserRole] = useState([]);
   const [edit, setEdit] = useState({});
   useEffect(() => {
-    fetch(`https://turf-server-seven.vercel.app/users?email=${user?.email}`)
+    fetch(`http://localhost:4000/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -24,7 +24,7 @@ const UserProfile = () => {
 
   if (user.emailVerified === true) {
     fetch(
-      `https://turf-server-seven.vercel.app/users/verify?email=${user.email}`,
+      `http://localhost:4000/users/verify?email=${user.email}`,
       {
         method: "PATCH",
       }
@@ -35,7 +35,7 @@ const UserProfile = () => {
   console.log(userInfo);
 
   // if (userInfo.role === "Turf Owner") {
-  //   fetch(`https://turf-server-seven.vercel.app/turfCollection?name=${userName}`)
+  //   fetch(`http://localhost:4000/turfCollection?name=${userName}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       console.log(data);

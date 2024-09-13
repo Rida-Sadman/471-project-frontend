@@ -22,7 +22,7 @@ const Navbar = () => {
     queryKey: ["notification"],
     queryFn: async () => {
       const res = await fetch(
-        `https://turf-server-seven.vercel.app/notification?email=${user?.email}`
+        `http://localhost:4000/notification?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -30,7 +30,7 @@ const Navbar = () => {
   });
 
   const notificationDelete = (id) => {
-    fetch(`https://turf-server-seven.vercel.app/notification/${id}`, {
+    fetch(`http://localhost:4000/notification/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

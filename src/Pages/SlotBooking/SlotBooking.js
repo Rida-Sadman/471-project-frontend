@@ -67,7 +67,7 @@ const SlotBooking = () => {
     queryKey: ["bookingData", formatedBookingDate],
     queryFn: async () => {
       const res = await fetch(
-        `https://turf-server-seven.vercel.app/allTurf?date=${formatedBookingDate}`
+        `http://localhost:4000/allTurf?date=${formatedBookingDate}`
       );
       const data = await res.json();
       return data;
@@ -81,7 +81,7 @@ const SlotBooking = () => {
     // Do something with the searchQuery, e.g., send it to the server for filtering
     console.log("Search query:", searchTurf);
     fetch(
-      `https://turf-server-seven.vercel.app/searchTurf?name=${searchTurf}&date=${formatedBookingDate}`
+      `http://localhost:4000/searchTurf?name=${searchTurf}&date=${formatedBookingDate}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -106,7 +106,7 @@ const SlotBooking = () => {
   };
   const getLocationData = (data) => {
     fetch(
-      `https://turf-server-seven.vercel.app/searchLocation?location=${data}&date=${formatedBookingDate}`
+      `http://localhost:4000/searchLocation?location=${data}&date=${formatedBookingDate}`
     )
       .then((res) => res.json())
       .then((data) => {

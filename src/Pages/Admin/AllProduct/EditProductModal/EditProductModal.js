@@ -8,7 +8,7 @@ const EditProductModal = ({ edit, refetch, setEdit }) => {
   const [yourArray, setYourArray] = useState(initialArray);
   const [info, setInfo] = useState([]);
   useEffect(() => {
-    fetch(`https://turf-server-seven.vercel.app/shop/${edit}`)
+    fetch(`http://localhost:4000/shop/${edit}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -38,7 +38,7 @@ const EditProductModal = ({ edit, refetch, setEdit }) => {
       description: description,
     };
 
-    fetch(`https://turf-server-seven.vercel.app/shop/${edit}`, {
+    fetch(`http://localhost:4000/shop/${edit}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

@@ -21,7 +21,7 @@ const AllProduct = () => {
   } = useQuery({
     queryKey: ["user", crntUserMail],
     queryFn: async () => {
-      const res = await fetch(`https://turf-server-seven.vercel.app/shop`);
+      const res = await fetch(`http://localhost:4000/shop`);
       const data = await res.json();
       return data;
     },
@@ -37,7 +37,7 @@ const AllProduct = () => {
   const handleDelete = (id, name) => {
     const proceed = window.confirm(`Are you sure you want to delete ${name}?`);
     if (proceed) {
-      fetch(`https://turf-server-seven.vercel.app/shop/${id}`, {
+      fetch(`http://localhost:4000/shop/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -52,7 +52,7 @@ const AllProduct = () => {
   };
 
   const handleAdvertise = (id, productName, productImg, productPrice) => {
-    fetch(`https://turf-server-seven.vercel.app/advertise?productId=${id}`)
+    fetch(`http://localhost:4000/advertise?productId=${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length) {
@@ -64,7 +64,7 @@ const AllProduct = () => {
             productImg: productImg,
             productPrice: productPrice,
           };
-          fetch("https://turf-server-seven.vercel.app/advertise", {
+          fetch("http://localhost:4000/advertise", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -74,7 +74,7 @@ const AllProduct = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
-              fetch(`https://turf-server-seven.vercel.app/shop/${id}`, {
+              fetch(`http://localhost:4000/shop/${id}`, {
                 method: "PATCH",
                 headers: {
                   "content-type": "application/json",
@@ -102,14 +102,14 @@ const AllProduct = () => {
       `Are you sure you want to remove ${productName} from Advertise section?`
     );
     if (proceed) {
-      fetch(`https://turf-server-seven.vercel.app/advertise/${id}`, {
+      fetch(`http://localhost:4000/advertise/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
           if (data.deletedCount > 0) {
-            fetch(`https://turf-server-seven.vercel.app/shop/${id}`, {
+            fetch(`http://localhost:4000/shop/${id}`, {
               method: "PATCH",
               headers: {
                 "content-type": "application/json",

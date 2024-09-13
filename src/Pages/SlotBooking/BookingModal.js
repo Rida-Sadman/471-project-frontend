@@ -17,7 +17,7 @@ const BookingModal = ({ data, date, setTurfData, refetch }) => {
   const [userRole, setUserRole] = useState([]);
   const formatedDate = format(date, "PP");
   useEffect(() => {
-    fetch(`https://turf-server-seven.vercel.app/users?email=${user?.email}`)
+    fetch(`http://localhost:4000/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -50,7 +50,7 @@ const BookingModal = ({ data, date, setTurfData, refetch }) => {
     if (clickedButton.name === "hold") {
       // Handle Hold Slot button click
       console.log("Hold Slot button clicked");
-      fetch(`https://turf-server-seven.vercel.app/hold`, {
+      fetch(`http://localhost:4000/hold`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -68,7 +68,7 @@ const BookingModal = ({ data, date, setTurfData, refetch }) => {
     } else if (clickedButton.name === "book") {
       // Handle Book Slot button click
       console.log("Book Slot button clicked");
-      fetch(`https://turf-server-seven.vercel.app/booking`, {
+      fetch(`http://localhost:4000/booking`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

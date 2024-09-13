@@ -59,7 +59,7 @@ const Login = () => {
         setLogInUserEmail(data.email);
         navigate("/");
         // if (user.emailVerified) {
-        //   fetch(`https://turf-server-seven.vercel.app/users?email=${user.email}`, {
+        //   fetch(`http://localhost:4000/users?email=${user.email}`, {
         //     method: "PATCH",
         //   })
         //     .then((res) => res.json())
@@ -98,7 +98,7 @@ const Login = () => {
         const number = "";
         const location = "";
         console.log(user);
-        fetch(`https://turf-server-seven.vercel.app/users?email=${user.email}`)
+        fetch(`http://localhost:4000/users?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
             if (data.length) {
@@ -134,7 +134,7 @@ const Login = () => {
       img: image,
       varify: "False",
     };
-    fetch("https://turf-server-seven.vercel.app/users", {
+    fetch("http://localhost:4000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

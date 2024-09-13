@@ -25,7 +25,7 @@ const Shop = () => {
   } = useQuery({
     queryKey: ["bookingData"],
     queryFn: async () => {
-      const res = await fetch(`https://turf-server-seven.vercel.app/shop`);
+      const res = await fetch(`http://localhost:4000/shop`);
       const data = await res.json();
       return data;
     },
@@ -42,7 +42,7 @@ const Shop = () => {
     // Do something with the searchQuery, e.g., send it to the server for filtering
     console.log("Search query:", searchProduct);
     fetch(
-      `https://turf-server-seven.vercel.app/searchProduct?name=${searchProduct}`
+      `http://localhost:4000/searchProduct?name=${searchProduct}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -59,7 +59,7 @@ const Shop = () => {
   };
   const getCategoryData = (data) => {
     fetch(
-      `https://turf-server-seven.vercel.app/searchProductCategory?category=${data}`
+      `http://localhost:4000/searchProductCategory?category=${data}`
     )
       .then((res) => res.json())
       .then((data) => {

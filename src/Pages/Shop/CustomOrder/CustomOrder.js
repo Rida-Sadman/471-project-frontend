@@ -16,7 +16,7 @@ const CustomOrder = () => {
   const crntUserMail = user.email;
   const [allOrders, setAllOrders] = useState([]);
   useEffect(() => {
-    fetch(`https://turf-server-seven.vercel.app/users?email=${user?.email}`)
+    fetch(`http://localhost:4000/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -32,7 +32,7 @@ const CustomOrder = () => {
     queryKey: ["user", crntUserMail],
     queryFn: async () => {
       let res = await fetch(
-        `https://turf-server-seven.vercel.app/customOrder?email=${crntUserMail}`
+        `http://localhost:4000/customOrder?email=${crntUserMail}`
       );
       let data = await res.json();
       return data;
@@ -52,7 +52,7 @@ const CustomOrder = () => {
       `Are you sure you want to delete order of ${name}?`
     );
     if (proceed) {
-      fetch(`https://turf-server-seven.vercel.app/customOrder/${id}`, {
+      fetch(`http://localhost:4000/customOrder/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -67,7 +67,7 @@ const CustomOrder = () => {
   };
 
   const handleApprove = (id, customerName, productName) => {
-    fetch(`https://turf-server-seven.vercel.app/customOrder/${id}`, {
+    fetch(`http://localhost:4000/customOrder/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

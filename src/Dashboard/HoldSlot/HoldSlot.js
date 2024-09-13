@@ -18,7 +18,7 @@ const HoldSlot = () => {
     queryKey: ["bookings"],
     queryFn: async () => {
       const res = await fetch(
-        `https://turf-server-seven.vercel.app/hold?customerEmail=${crntUserMail}`
+        `http://localhost:4000/hold?customerEmail=${crntUserMail}`
       );
       const data = await res.json();
       return data;
@@ -54,7 +54,7 @@ const HoldSlot = () => {
     );
     if (proceed) {
       console.log("dltId", id);
-      fetch(`https://turf-server-seven.vercel.app/hold/${id}`, {
+      fetch(`http://localhost:4000/hold/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

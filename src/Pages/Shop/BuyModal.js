@@ -22,7 +22,7 @@ const BuyModal = ({ data, setproductData, refetch }) => {
   } = data;
   const [userRole, setUserRole] = useState([]);
   useEffect(() => {
-    fetch(`https://turf-server-seven.vercel.app/users?email=${user?.email}`)
+    fetch(`http://localhost:4000/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -50,7 +50,7 @@ const BuyModal = ({ data, setproductData, refetch }) => {
       toast.error(`Sorry we have only ${stock} pcs left!`);
     } else {
       let remainingStock = stockInt - productPcsInt;
-      fetch(`https://turf-server-seven.vercel.app/shopOrder`, {
+      fetch(`http://localhost:4000/shopOrder`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -60,7 +60,7 @@ const BuyModal = ({ data, setproductData, refetch }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            fetch(`https://turf-server-seven.vercel.app/shop/${_id}`, {
+            fetch(`http://localhost:4000/shop/${_id}`, {
               method: "PATCH",
               headers: {
                 "content-type": "application/json",
