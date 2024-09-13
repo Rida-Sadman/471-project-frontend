@@ -5,15 +5,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAbLB5_sStHF_pz1wwPPB7_KD2TYQIaxho",
-  authDomain: "turfslotbooking.firebaseapp.com",
-  projectId: "turfslotbooking",
-  storageBucket: "turfslotbooking.appspot.com",
-  messagingSenderId: "822344802585",
-  appId: "1:822344802585:web:902e5ae1be457e8b596588",
+  apiKey: "AIzaSyDEBe9BeNKBDegJ3x1fiZtFFa7DnMlKeFM",
+  authDomain: "turf-slot-booking-56e60.firebaseapp.com",
+  projectId: "turf-slot-booking-56e60",
+  storageBucket: "turf-slot-booking-56e60.appspot.com",
+  messagingSenderId: "658672306673",
+  appId: "1:658672306673:web:1ebb60c590ab24008fdc50"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-export default app;
